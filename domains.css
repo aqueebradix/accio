@@ -272,12 +272,15 @@
 }
 .price-chip.paid { background: var(--gray-bg); color: var(--text-secondary); }
 
+.eyebrow-section { margin: 2px 0 -4px; }
+
 .register-form { display: flex; flex-direction: column; gap: 16px; }
 .form-row { display: flex; gap: 16px; }
-.form-row.two-col .form-field { flex: 1; }
-.form-field { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.form-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.form-field.wide { flex: 2; }
 .form-field label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
-.form-field input {
+.form-field input,
+.form-field select {
   border: 1px solid var(--border-strong);
   border-radius: 10px;
   padding: 11px 14px;
@@ -285,8 +288,11 @@
   font-family: inherit;
   color: var(--text-primary);
   outline: none;
+  background: #fff;
+  width: 100%;
 }
-.form-field input:focus { border-color: #b7bcc4; }
+.form-field input:focus,
+.form-field select:focus { border-color: #b7bcc4; }
 
 .consent-row {
   display: flex;
@@ -734,7 +740,7 @@
 
 @media (max-width: 640px) {
   .search-form { flex-direction: column; }
-  .form-row.two-col { flex-direction: column; }
+  .form-row { flex-direction: column; }
   .hero-tld-card { flex-direction: column; align-items: flex-start; }
   .hero-tld-right { width: 100%; justify-content: space-between; }
   .result-row { flex-wrap: wrap; }

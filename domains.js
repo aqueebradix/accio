@@ -56,6 +56,12 @@
   const regFirstNameEl = document.getElementById('reg-first-name');
   const regLastNameEl = document.getElementById('reg-last-name');
   const regEmailEl = document.getElementById('reg-email');
+  const regPhoneEl = document.getElementById('reg-phone');
+  const regAddressEl = document.getElementById('reg-address');
+  const regCityEl = document.getElementById('reg-city');
+  const regStateEl = document.getElementById('reg-state');
+  const regPostalEl = document.getElementById('reg-postal');
+  const regCountryEl = document.getElementById('reg-country');
   const regConsentEl = document.getElementById('reg-consent');
 
   const successSectionEl = document.getElementById('success-section');
@@ -233,6 +239,12 @@
     regFirstNameEl.value = 'Alex';
     regLastNameEl.value = 'Carter';
     regEmailEl.value = 'alex.carter@example.com';
+    regPhoneEl.value = '+1 (512) 555-0142';
+    regAddressEl.value = '482 Maple Grove Drive';
+    regCityEl.value = 'Austin';
+    regStateEl.value = 'TX';
+    regPostalEl.value = '78701';
+    regCountryEl.value = 'United States';
     regConsentEl.checked = false;
 
     showView('register');
