@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accio Work</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="domains.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+
+    <div class="sidebar-topbar">
+      <button class="icon-btn" title="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><line x1="9.5" y1="4" x2="9.5" y2="20"></line></svg>
+      </button>
+      <button class="icon-btn" title="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+    </div>
+
+    <div class="logo">
+      <img class="logo-image" src="assets/accio-work-logo.png" alt="Accio Work">
+    </div>
+
+    <nav class="nav-main">
+      <a class="nav-item" data-tab="new-task">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <span class="nav-label">New task</span>
+      </a>
+      <a class="nav-item" data-tab="agents">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+        <span class="nav-label">Agents</span>
+      </a>
+      <a class="nav-item" data-tab="plugins">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3"></path><path d="M16 3v3"></path><path d="M3 12h3"></path><path d="M18 12h3"></path><path d="M12.5 8H14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 1.5 1.5H19a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-.5a1.5 1.5 0 0 0-1.5 1.5V21a2 2 0 0 1-2 2h-1.5a1.5 1.5 0 0 1-1.5-1.5V19a2 2 0 0 0-2-2H10a2 2 0 0 1-2-2v-1.5A1.5 1.5 0 0 0 6.5 12H5a2 2 0 0 1-2-2v-.5a2 2 0 0 1 2-2h1.5A1.5 1.5 0 0 0 8 6V4.5A1.5 1.5 0 0 1 9.5 3H11a2 2 0 0 1 2 2v1.5A1.5 1.5 0 0 0 12.5 8Z"></path></svg></span>
+        <span class="nav-label">Plugins</span>
+      </a>
+      <a class="nav-item" data-tab="scheduled">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15.5 14"></polyline></svg></span>
+        <span class="nav-label">Scheduled Tasks</span>
+      </a>
+      <a class="nav-item" data-tab="channels">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="12" r="3"></circle><path d="M8.6 7.4 15.4 10.6"></path><path d="M8.6 16.6 15.4 13.4"></path></svg></span>
+        <span class="nav-label">Channels</span>
+      </a>
+      <a class="nav-item" data-tab="mobile">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><line x1="11" y1="18.5" x2="13" y2="18.5"></line></svg></span>
+        <span class="nav-label">Mobile</span>
+        <span class="badge">Beta</span>
+      </a>
+      <a class="nav-item active" data-tab="domains">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13.5 13.5 0 0 1 0 18"></path><path d="M12 3a13.5 13.5 0 0 0 0 18"></path></svg></span>
+        <span class="nav-label">Domains</span>
+      </a>
+      <a class="nav-item" data-tab="knowledge">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 18.5a4.5 4.5 0 0 1-.5-8.98 5.5 5.5 0 0 1 10.7-2.13A4.5 4.5 0 0 1 17.5 18.5h-11Z"></path></svg></span>
+        <span class="nav-label">Knowledge Base</span>
+      </a>
+    </nav>
+
+    <div class="tasks-section">
+      <div class="section-heading">
+        <span>Tasks</span>
+        <button class="icon-btn small" title="Filter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><circle cx="9" cy="6" r="2" fill="#fff"></circle><line x1="4" y1="12" x2="20" y2="12"></line><circle cx="15" cy="12" r="2" fill="#fff"></circle><line x1="4" y1="18" x2="20" y2="18"></line><circle cx="11" cy="18" r="2" fill="#fff"></circle></svg>
+        </button>
+      </div>
+      <div class="task-agent">
+        <span class="agent-avatar">A</span>
+        <span>Accio Assistant</span>
+      </div>
+      <div class="task-item">
+        <span>Shopify store setup</span>
+        <span class="task-time">5d</span>
+      </div>
+    </div>
+
+    <div class="teams-section">
+      <span>Teams</span>
+      <span class="badge">Beta</span>
+    </div>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-bottom">
+      <button class="share-earn">
+        <span class="gift-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"></rect><rect x="5" y="12" width="14" height="9" rx="1"></rect><line x1="12" y1="8" x2="12" y2="21"></line><path d="M12 8c-1.5-3-6-3.5-6-1s2.7 1 6 1Z"></path><path d="M12 8c1.5-3 6-3.5 6-1s-2.7 1-6 1Z"></path></svg>
+        </span>
+        <span class="share-earn-text">
+          <span class="share-title">Share &amp; Earn</span>
+          <span class="share-sub">Get up to 1,200 Credits</span>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+
+      <div class="user-row">
+        <span class="avatar">A</span>
+        <span class="user-name">Alex Carter</span>
+        <button class="upgrade-btn">Upgrade</button>
+        <button class="icon-btn small user-chevron" title="Account menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+    <div class="main-topbar">
+      <button class="update-btn">Update</button>
+      <button class="icon-btn" title="Support">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><rect x="2.5" y="13" width="4.5" height="6" rx="1.5"></rect><rect x="17" y="13" width="4.5" height="6" rx="1.5"></rect><path d="M20.5 19.5a4 4 0 0 1-4 3.5h-2.5"></path></svg>
+      </button>
+    </div>
+
+    <div class="main-content" id="main-content">
+
+      <div id="generic-view" class="generic-view" hidden>
+        <h1 class="page-title" id="generic-title"></h1>
+      </div>
+
+      <div id="domains-view" class="domains-view">
+        <h1 class="page-title">Domains</h1>
+
+        <!-- ============ MY DOMAINS TABLE ============ -->
+        <section id="my-domains-card" class="card my-domains-card" hidden>
+          <div class="card-header-row">
+            <h2 class="card-title">My domains</h2>
+          </div>
+          <div class="domains-table" id="domains-table"></div>
+        </section>
+
+        <!-- ============ SEARCH HERO ============ -->
+        <section id="search-hero" class="card search-hero-card">
+          <h2 class="hero-headline" id="hero-headline">Find your name. <span class="bolt">⚡</span></h2>
+          <p class="hero-subline" id="hero-subline">Instant availability. No fuss.</p>
+          <form id="search-form" class="search-form" autocomplete="off">
+            <div class="search-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input id="search-input" type="text" placeholder="e.g. mybrandname" maxlength="30">
+            </div>
+            <button type="submit" class="btn-black search-submit">Search</button>
+          </form>
+          <div class="tip-chips">
+            <span class="tip-chip">Keep it under 15 characters</span>
+            <span class="tip-chip">Avoid hyphens &amp; numbers</span>
+            <span class="tip-chip">Start with your brand name</span>
+          </div>
+        </section>
+
+        <!-- ============ RESULTS ============ -->
+        <section id="results-section" class="results-section" hidden>
+          <div id="hero-tld-card" class="hero-tld-card"></div>
+
+          <div class="card results-card">
+            <div class="results-count" id="results-count" hidden></div>
+            <div class="results-list" id="results-list"></div>
+          </div>
+        </section>
+
+        <!-- ============ REGISTRATION FORM ============ -->
+        <section id="register-section" class="card register-card" hidden>
+          <div class="register-header">
+            <span class="eyebrow">Registering</span>
+            <div class="register-domain-row">
+              <span class="register-domain" id="register-domain"></span>
+              <span class="price-chip" id="register-price-chip"></span>
+            </div>
+          </div>
+
+          <form id="register-form" class="register-form">
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="reg-first-name">First name</label>
+                <input id="reg-first-name" type="text">
+              </div>
+              <div class="form-field">
+                <label for="reg-last-name">Last name</label>
+                <input id="reg-last-name" type="text">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="reg-email">Email</label>
+                <input id="reg-email" type="email">
+              </div>
+            </div>
+
+            <label class="consent-row">
+              <input type="checkbox" id="reg-consent" required>
+              <span>I agree to create a domain account with Namify and accept their <a href="#" target="_blank" rel="noopener">legal terms</a>.</span>
+            </label>
+
+            <div class="register-actions">
+              <button type="button" class="btn-ghost" id="register-cancel">Cancel</button>
+              <button type="submit" class="btn-black register-submit" id="register-submit">Register domain</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ============ SUCCESS ============ -->
+        <section id="success-section" class="card success-card" hidden>
+          <div class="success-header">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2 class="success-title">Domain registered!</h2>
+            <p class="success-subtitle" id="success-subtitle"></p>
+          </div>
+          <div class="success-body">
+            <p id="success-message"></p>
+          </div>
+          <div class="success-actions">
+            <button class="btn-black" id="success-my-domains">My domains →</button>
+          </div>
+        </section>
+
+        <!-- ============ MANAGE DOMAIN ============ -->
+        <section id="manage-domain-section" class="manage-domain-section" hidden>
+          <button type="button" class="back-link" id="manage-back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to My domains
+          </button>
+
+          <div class="manage-header">
+            <h2>Manage domain</h2>
+            <p class="hero-subline">Point this domain to your store, or update its settings.</p>
+          </div>
+
+          <div class="card manage-info-card">
+            <div class="manage-info-top">
+              <div class="manage-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13.5 13.5 0 0 1 0 18"></path><path d="M12 3a13.5 13.5 0 0 0 0 18"></path></svg>
+              </div>
+              <div class="manage-info-text">
+                <div class="manage-info-row">
+                  <span class="domain-name" id="manage-domain-name"></span>
+                  <span class="pill-badge pill-badge-active">Active</span>
+                  <span class="pill-badge pill-badge-primary" id="manage-primary-badge">Primary</span>
+                </div>
+                <p class="manage-info-subtitle" id="manage-info-subtitle"></p>
+              </div>
+            </div>
+
+            <div class="connect-store">
+              <span class="connect-store-label">Connect to your store</span>
+              <div class="connect-store-tabs">
+                <button type="button" class="connect-tab" data-platform="shopify">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1.5 12.5a1.5 1.5 0 0 1-1.5 1.5H6a1.5 1.5 0 0 1-1.5-1.5L6 8Z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
+                  Shopify
+                </button>
+                <button type="button" class="connect-tab" data-platform="wix">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2"></rect><line x1="3" y1="8.5" x2="21" y2="8.5"></line><circle cx="6" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle><circle cx="8.2" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle></svg>
+                  Wix
+                </button>
+              </div>
+
+              <div class="connect-instructions" id="connect-instructions-shopify" hidden>
+                <ol>
+                  <li>In your Shopify admin, go to <strong>Settings → Domains</strong>.</li>
+                  <li>Click <strong>Connect existing domain</strong> and enter <strong class="ci-domain" data-for="shopify"></strong>.</li>
+                  <li>Shopify will show you the DNS records it needs — add them in the DNS records table above.</li>
+                  <li>Back in Shopify, click <strong>Verify connection</strong>. Propagation can take up to 48 hours.</li>
+                </ol>
+              </div>
+              <div class="connect-instructions" id="connect-instructions-wix" hidden>
+                <ol>
+                  <li>In your Wix dashboard, go to <strong>Settings → Domains → Connect a domain you own</strong>.</li>
+                  <li>Choose <strong>Connect manually (advanced)</strong> and enter <strong class="ci-domain" data-for="wix"></strong>.</li>
+                  <li>Wix will show you the DNS records it needs — add them in the DNS records table above.</li>
+                  <li>Return to Wix and click <strong>Verify</strong>. Propagation can take a few hours.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="card manage-dns-card">
+            <div class="manage-dns-header">
+              <span class="card-title">DNS records</span>
+              <button type="button" class="btn-text" id="add-record-btn" title="Not available in this prototype">+ Add record</button>
+            </div>
+            <p class="manage-dns-note">Starting point only — use the exact values your store platform (Shopify, Wix, etc.) gives you when you connect a custom domain there.</p>
+            <div class="dns-table">
+              <div class="dns-table-row dns-table-head">
+                <span>Type</span><span>Name</span><span>Value</span><span>TTL</span><span></span>
+              </div>
+              <div id="dns-records-body"></div>
+            </div>
+          </div>
+
+          <div class="card manage-toggle-card">
+            <div class="manage-toggle-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path></svg>
+            </div>
+            <div class="manage-toggle-text">
+              <div class="manage-toggle-title">Auto-renew</div>
+              <div class="manage-toggle-subtitle" id="manage-autorenew-subtitle"></div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="manage-autorenew-toggle">
+              <span class="switch-track"></span>
+            </label>
+          </div>
+
+          <div class="card manage-toggle-card">
+            <div class="manage-toggle-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3 21 7l-4 4"></path><path d="M3 7h18"></path><path d="M7 21 3 17l4-4"></path><path d="M21 17H3"></path></svg>
+            </div>
+            <div class="manage-toggle-text">
+              <div class="manage-toggle-title">Transfer domain</div>
+              <div class="manage-toggle-subtitle" id="manage-transfer-subtitle"></div>
+            </div>
+            <button type="button" class="btn-ghost" title="Not available in this prototype">Transfer</button>
+          </div>
+
+          <div class="card manage-danger-card">
+            <div class="manage-toggle-icon manage-toggle-icon-danger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"></path><path d="M10 11v6M14 11v6"></path><path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"></path><path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path></svg>
+            </div>
+            <div class="manage-toggle-text">
+              <div class="manage-toggle-title manage-danger-title">Delete domain</div>
+              <div class="manage-toggle-subtitle" id="manage-delete-subtitle"></div>
+            </div>
+            <button type="button" class="btn-danger" title="Not available in this prototype">Delete</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<!-- ============ PAYMENT MODAL ============ -->
+<div id="payment-modal" class="modal-backdrop" hidden>
+  <div class="modal-card">
+    <button class="modal-close" id="payment-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <div id="modal-invoice-view">
+      <p class="invoice-header">Invoice from Accio Work</p>
+      <p class="invoice-amount" id="invoice-amount"></p>
+      <div class="invoice-meta">
+        <div class="invoice-meta-row"><span>Description</span><span id="invoice-desc"></span></div>
+        <div class="invoice-meta-row"><span>Invoice number</span><span id="invoice-number"></span></div>
+        <div class="invoice-meta-row"><span>Due date</span><span id="invoice-due"></span></div>
+      </div>
+      <div class="invoice-actions">
+        <button class="btn-ghost" id="invoice-download">Download invoice</button>
+        <button class="btn-black" id="invoice-pay">Pay now</button>
+      </div>
+    </div>
+
+    <div id="modal-success-view" hidden>
+      <div class="modal-success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3 class="modal-success-title" id="modal-success-title"></h3>
+      <p class="modal-success-message" id="modal-success-message"></p>
+      <button class="btn-black modal-success-done" id="modal-done-btn">Done</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="domains.js"></script>
+</body>
+</html>
