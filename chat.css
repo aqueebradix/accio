@@ -86,8 +86,8 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--green-bg-soft);
-  border: 1px solid #a7e8cf;
+  background: var(--green-bg);
+  border: 1px solid #86e0bb;
   border-radius: var(--radius-lg);
   padding: 16px 18px;
   margin: 8px 0 26px;
