@@ -86,14 +86,14 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--gray-bg);
-  border: none;
+  background: var(--green-bg-soft);
+  border: 1px solid #a7e8cf;
   border-radius: var(--radius-lg);
   padding: 16px 18px;
   margin: 8px 0 26px;
   cursor: pointer;
 }
-.domain-upsell-card:hover { background: var(--gray-bg-hover); }
+.domain-upsell-card:hover { border-color: var(--green); }
 .domain-upsell-card:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .domain-upsell-card[hidden] { display: none; }
 
