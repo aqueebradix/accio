@@ -2,8 +2,8 @@
 
 :root {
   --sidebar-w: 300px;
-  --border: #ececec;
-  --border-strong: #e3e5e8;
+  --border: #e2e4e8;
+  --border-strong: #cbd1d9;
   --text-primary: #16181c;
   --text-secondary: #6b7280;
   --text-muted: #9ca3af;
@@ -44,7 +44,7 @@ html, body {
   width: var(--sidebar-w);
   min-width: var(--sidebar-w);
   height: 100%;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--border-strong);
   display: flex;
   flex-direction: column;
   padding: 10px 14px 12px;

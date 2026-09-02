@@ -77,6 +77,20 @@
 }
 .free-badge sup { font-size: 9px; }
 
+.pro-chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--black-pill);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
 .country-badge {
   display: inline-flex;
   align-items: center;

@@ -166,6 +166,7 @@
         <div class="hero-tld-name-row">
           <span class="hero-tld-name">${domain}</span>
           ${free ? freeBadge() : ''}
+          <span class="pro-chip">Pro</span>
         </div>
         <span class="hero-tld-sub">Recommended</span>
       </div>
