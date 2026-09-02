@@ -1,7 +1,10 @@
 const navItems = document.querySelectorAll('.nav-item');
+const taskItem = document.getElementById('task-shopify-setup');
 const genericView = document.getElementById('generic-view');
 const genericTitle = document.getElementById('generic-title');
+const chatView = document.getElementById('chat-view');
 const domainsView = document.getElementById('domains-view');
+const topbarTitleEl = document.getElementById('topbar-title');
 
 const titles = {
   'new-task': 'New task',
@@ -14,19 +17,71 @@ const titles = {
   'knowledge': 'Knowledge Base'
 };
 
-navItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    navItems.forEach((el) => el.classList.remove('active'));
-    item.classList.add('active');
-    const tab = item.getAttribute('data-tab');
+function showTab(tab) {
+  navItems.forEach((el) => el.classList.remove('active'));
+  if (taskItem) taskItem.classList.remove('active');
 
-    if (tab === 'domains') {
-      domainsView.hidden = false;
-      genericView.hidden = true;
-    } else {
-      domainsView.hidden = true;
-      genericView.hidden = false;
-      genericTitle.textContent = titles[tab] || '';
+  chatView.hidden = true;
+  domainsView.hidden = true;
+  genericView.hidden = true;
+  topbarTitleEl.hidden = true;
+  topbarTitleEl.textContent = '';
+
+  if (tab === 'chat') {
+    if (taskItem) taskItem.classList.add('active');
+    chatView.hidden = false;
+    topbarTitleEl.textContent = 'Shopify store setup';
+    topbarTitleEl.hidden = false;
+  } else if (tab === 'domains') {
+    navItems.forEach((el) => {
+      if (el.getAttribute('data-tab') === 'domains') el.classList.add('active');
+    });
+    domainsView.hidden = false;
+  } else {
+    navItems.forEach((el) => {
+      if (el.getAttribute('data-tab') === tab) el.classList.add('active');
+    });
+    genericView.hidden = false;
+    genericTitle.textContent = titles[tab] || '';
+  }
+}
+
+navItems.forEach((item) => {
+  item.addEventListener('click', () => showTab(item.getAttribute('data-tab')));
+});
+
+if (taskItem) {
+  taskItem.addEventListener('click', () => showTab('chat'));
+}
+
+const upsellCard = document.getElementById('domain-upsell-card');
+const upsellCta = document.getElementById('domain-upsell-cta');
+const upsellDismiss = document.getElementById('domain-upsell-dismiss');
+
+function goToDomains() {
+  showTab('domains');
+}
+
+if (upsellCta) {
+  upsellCta.addEventListener('click', (e) => {
+    e.stopPropagation();
+    goToDomains();
+  });
+}
+if (upsellDismiss) {
+  upsellDismiss.addEventListener('click', (e) => {
+    e.stopPropagation();
+    upsellCard.hidden = true;
+  });
+}
+if (upsellCard) {
+  upsellCard.addEventListener('click', goToDomains);
+  upsellCard.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToDomains();
     }
   });
-});
+}
+
+showTab('chat');

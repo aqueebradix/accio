@@ -6,6 +6,7 @@
 <title>Accio Work</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="domains.css">
+<link rel="stylesheet" href="chat.css">
 </head>
 <body>
 <div class="app">
@@ -52,7 +53,7 @@
         <span class="nav-label">Mobile</span>
         <span class="badge">Beta</span>
       </a>
-      <a class="nav-item active" data-tab="domains">
+      <a class="nav-item" data-tab="domains">
         <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13.5 13.5 0 0 1 0 18"></path><path d="M12 3a13.5 13.5 0 0 0 0 18"></path></svg></span>
         <span class="nav-label">Domains</span>
       </a>
@@ -73,7 +74,7 @@
         <span class="agent-avatar">A</span>
         <span>Accio Assistant</span>
       </div>
-      <div class="task-item">
+      <div class="task-item" id="task-shopify-setup">
         <span>Shopify store setup</span>
         <span class="task-time">5d</span>
       </div>
@@ -112,10 +113,13 @@
   <!-- ===================== MAIN ===================== -->
   <main class="main">
     <div class="main-topbar">
-      <button class="update-btn">Update</button>
-      <button class="icon-btn" title="Support">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><rect x="2.5" y="13" width="4.5" height="6" rx="1.5"></rect><rect x="17" y="13" width="4.5" height="6" rx="1.5"></rect><path d="M20.5 19.5a4 4 0 0 1-4 3.5h-2.5"></path></svg>
-      </button>
+      <span class="topbar-title" id="topbar-title" hidden></span>
+      <div class="topbar-actions">
+        <button class="update-btn">Update</button>
+        <button class="icon-btn" title="Support">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><rect x="2.5" y="13" width="4.5" height="6" rx="1.5"></rect><rect x="17" y="13" width="4.5" height="6" rx="1.5"></rect><path d="M20.5 19.5a4 4 0 0 1-4 3.5h-2.5"></path></svg>
+        </button>
+      </div>
     </div>
 
     <div class="main-content" id="main-content">
@@ -124,7 +128,65 @@
         <h1 class="page-title" id="generic-title"></h1>
       </div>
 
-      <div id="domains-view" class="domains-view">
+      <div id="chat-view" class="chat-view">
+        <div class="chat-message">
+          <div class="chat-agent-row">
+            <span class="agent-avatar chat-agent-avatar">A</span>
+            <span class="chat-agent-name">Accio Assistant</span>
+          </div>
+          <button type="button" class="worked-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            Worked for 17m 40s
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+
+          <div class="chat-body">
+            <p>Here's where things stand — the core of your request is <strong>done</strong>, with a couple of follow-up items pending.</p>
+
+            <h3 class="chat-heading"><span class="chat-heading-icon done">✓</span> Completed: product found &amp; published</h3>
+            <p>I sourced a real product from an actual supplier listing (Alibaba — Ningbo Pailite Electronics Co., Ltd, an assessed 14-year supplier) and published it to your store <strong>reeieh-11.myshopify.com</strong>:</p>
+            <ul class="chat-list">
+              <li><strong>Product:</strong> Stainless Steel Electric Milk Frother – Handheld Battery-Powered Coffee Foam Whisk</li>
+              <li><strong>Status:</strong> ACTIVE · <strong>Price:</strong> ₹599 (store currency is INR) · <strong>Handle:</strong> <code>stainless-steel-electric-milk-frother</code></li>
+              <li><strong>Image:</strong> real product photo from the supplier listing (verified live, now hosted on your Shopify CDN with alt text)</li>
+              <li><strong>SEO:</strong> title, description, and handle set for the primary keyword "electric milk frother"</li>
+              <li><strong>Published to:</strong> Online Store channel — <code>publishablePublish</code> returned success with no errors; Admin verification confirmed ACTIVE status, image, and variant (Product ID <code>gid://shopify/Product/10714887979317</code>)</li>
+            </ul>
+
+            <!-- ============ DOMAIN UPSELL CARD ============ -->
+            <div class="domain-upsell-card" id="domain-upsell-card" role="button" tabindex="0">
+              <span class="domain-upsell-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13.5 13.5 0 0 1 0 18"></path><path d="M12 3a13.5 13.5 0 0 0 0 18"></path></svg>
+              </span>
+              <p class="domain-upsell-text"><strong>Give your store a real address.</strong> Claim <strong>alex.store</strong> free for your first year.</p>
+              <button type="button" class="domain-upsell-cta" id="domain-upsell-cta">Claim domain</button>
+              <button type="button" class="domain-upsell-dismiss" id="domain-upsell-dismiss" aria-label="Dismiss">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-bar">
+          <div class="chat-input-box">Ask anything… (@ to reference files)</div>
+          <div class="chat-input-toolbar">
+            <button type="button" class="icon-btn small chat-plus-btn" title="Add">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <span class="chat-toolbar-pill">Ask <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span class="chat-toolbar-pill">Auto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <div class="chat-toolbar-spacer"></div>
+            <button type="button" class="icon-btn small" title="Voice input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10a7 7 0 0 0 14 0"></path><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </button>
+            <button type="button" class="chat-send-btn" title="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="6 11 12 5 18 11"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="domains-view" class="domains-view" hidden>
         <h1 class="page-title">Domains</h1>
 
         <!-- ============ MY DOMAINS TABLE ============ -->
