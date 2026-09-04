@@ -12,13 +12,13 @@
 
   const TLDS = [
     { tld: '.com',    price: 15, renewPrice: 16 },
-    { tld: '.tech',   price: 55, renewPrice: 55 },
+    { tld: '.site',   price: 35, renewPrice: 35 },
     { tld: '.online', price: 35, renewPrice: 35 },
     { tld: '.io',     price: 64, renewPrice: 64 },
     { tld: '.co',     price: 35, renewPrice: 35 },
     { tld: '.net',    price: 18, renewPrice: 18 },
     { tld: '.org',    price: 14, renewPrice: 18 },
-    { tld: '.site',   price: 35, renewPrice: 35 },
+    { tld: '.tech',   price: 55, renewPrice: 55 },
   ];
 
   const ALL_TLD_STRINGS = [HERO.tld, ...TLDS.map((t) => t.tld)];
