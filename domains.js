@@ -5,18 +5,20 @@
      TLD PORTFOLIO — single source of truth for pricing, free status,
      hero designation and display order (see PROTOTYPE-GUIDELINES.md §12).
      Hero TLD: .store — free for the first year. Everything else is paid.
+     Prices are the suggested registration / renewal prices from the
+     partner pricing sheet (not estimates).
   ===================================================================== */
-  const HERO = { tld: '.store', freeRenew: 22 };
+  const HERO = { tld: '.store', freeRenew: 55 };
 
   const TLDS = [
-    { tld: '.com',    price: 12 },
-    { tld: '.tech',   price: 19 },
-    { tld: '.online', price: 19 },
-    { tld: '.io',     price: 32 },
-    { tld: '.co',     price: 25 },
-    { tld: '.net',    price: 15 },
-    { tld: '.org',    price: 15 },
-    { tld: '.site',   price: 19 },
+    { tld: '.com',    price: 15, renewPrice: 16 },
+    { tld: '.tech',   price: 55, renewPrice: 55 },
+    { tld: '.online', price: 35, renewPrice: 35 },
+    { tld: '.io',     price: 64, renewPrice: 64 },
+    { tld: '.co',     price: 35, renewPrice: 35 },
+    { tld: '.net',    price: 18, renewPrice: 18 },
+    { tld: '.org',    price: 14, renewPrice: 18 },
+    { tld: '.site',   price: 35, renewPrice: 35 },
   ];
 
   const ALL_TLD_STRINGS = [HERO.tld, ...TLDS.map((t) => t.tld)];
@@ -211,7 +213,7 @@
         </div>`;
 
       row.querySelector('.result-action').addEventListener('click', () => {
-        openRegister({ domain, isFree: false, payPrice: t.price, renewPrice: t.price });
+        openRegister({ domain, isFree: false, payPrice: t.price, renewPrice: t.renewPrice });
       });
       resultsListEl.appendChild(row);
     });
