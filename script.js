@@ -56,7 +56,6 @@ if (taskItem) {
 
 const upsellCard = document.getElementById('domain-upsell-card');
 const upsellCta = document.getElementById('domain-upsell-cta');
-const upsellDismiss = document.getElementById('domain-upsell-dismiss');
 
 function goToDomains() {
   showTab('domains');
@@ -66,12 +65,6 @@ if (upsellCta) {
   upsellCta.addEventListener('click', (e) => {
     e.stopPropagation();
     goToDomains();
-  });
-}
-if (upsellDismiss) {
-  upsellDismiss.addEventListener('click', (e) => {
-    e.stopPropagation();
-    upsellCard.hidden = true;
   });
 }
 if (upsellCard) {

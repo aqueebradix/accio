@@ -83,38 +83,86 @@
 
 /* ---------- Domain upsell card ---------- */
 .domain-upsell-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid #d3f3e4;
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin: 8px 0 26px;
+  cursor: pointer;
+}
+.domain-upsell-card:hover { border-color: #a7e8cf; }
+.domain-upsell-card:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.domain-upsell-card[hidden] { display: none; }
+
+.domain-upsell-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.domain-upsell-heading {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.domain-upsell-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.domain-upsell-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.domain-upsell-chip svg { width: 13px; height: 13px; flex: 0 0 auto; }
+
+.domain-upsell-hero-card {
   display: flex;
   align-items: center;
   gap: 14px;
   background: var(--green-bg);
   border: 1px solid #86e0bb;
-  border-radius: var(--radius-lg);
-  padding: 16px 18px;
-  margin: 8px 0 26px;
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
 }
-.domain-upsell-card:hover { border-color: var(--green); }
-.domain-upsell-card:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-.domain-upsell-card[hidden] { display: none; }
 
-.domain-upsell-icon {
-  display: inline-flex;
+.domain-upsell-icon-circle {
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--green);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green-dark);
   flex: 0 0 auto;
 }
-.domain-upsell-icon svg { width: 22px; height: 22px; }
+.domain-upsell-icon-circle svg { width: 20px; height: 20px; }
 
-.domain-upsell-text {
-  flex: 1;
-  min-width: 0;
-  margin: 0;
-  font-size: 14.5px;
+.domain-upsell-hero-text { flex: 1; min-width: 0; }
+.domain-upsell-domain {
+  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 800;
   color: var(--text-primary);
-  line-height: 1.5;
 }
-.domain-upsell-text strong { font-weight: 700; }
+.domain-upsell-sub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
 
 .domain-upsell-cta {
   flex: 0 0 auto;
@@ -129,22 +177,6 @@
   cursor: pointer;
 }
 .domain-upsell-cta:hover { background: var(--green-dark); }
-
-.domain-upsell-dismiss {
-  flex: 0 0 auto;
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
-  border: none;
-  background: none;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.domain-upsell-dismiss:hover { background: var(--gray-bg-hover); color: var(--text-primary); }
-.domain-upsell-dismiss svg { width: 15px; height: 15px; }
 
 /* ---------- Decorative chat input bar ---------- */
 .chat-input-bar {
@@ -200,5 +232,6 @@
 .chat-send-btn svg { width: 15px; height: 15px; }
 
 @media (max-width: 640px) {
+  .domain-upsell-hero-card { flex-wrap: wrap; }
   .domain-upsell-cta { width: 100%; text-align: center; }
 }
