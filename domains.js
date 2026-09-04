@@ -12,13 +12,7 @@
 
   const TLDS = [
     { tld: '.com',    price: 15, renewPrice: 16 },
-    { tld: '.site',   price: 35, renewPrice: 35 },
     { tld: '.online', price: 35, renewPrice: 35 },
-    { tld: '.io',     price: 64, renewPrice: 64 },
-    { tld: '.co',     price: 35, renewPrice: 35 },
-    { tld: '.net',    price: 18, renewPrice: 18 },
-    { tld: '.org',    price: 14, renewPrice: 18 },
-    { tld: '.tech',   price: 55, renewPrice: 55 },
   ];
 
   const ALL_TLD_STRINGS = [HERO.tld, ...TLDS.map((t) => t.tld)];
@@ -214,6 +208,33 @@
 
       row.querySelector('.result-action').addEventListener('click', () => {
         openRegister({ domain, isFree: false, payPrice: t.price, renewPrice: t.renewPrice });
+      });
+      resultsListEl.appendChild(row);
+    });
+
+    // A couple of .store name variations alongside the exact-match hero card.
+    const storeVariations = [`get${base}`, `${base}hq`];
+    storeVariations.forEach((variantBase) => {
+      const domain = variantBase + HERO.tld;
+      const free = !state.hasRegisteredFirstDomain;
+      const priceMain = free ? 'Free' : fmtMoney(HERO.freeRenew) + '/yr';
+      const priceSub = free ? `then ${fmtMoney(HERO.freeRenew)}/yr` : '';
+
+      const row = document.createElement('div');
+      row.className = 'result-row';
+
+      row.innerHTML = `
+        <div class="result-left">
+          <span class="result-domain">${domain}</span>
+          ${free ? freeBadge() : ''}
+        </div>
+        <div class="result-right">
+          <div class="result-price"><span class="price-main">${priceMain}</span>${priceSub ? `<span class="price-sub">${priceSub}</span>` : ''}</div>
+          <button type="button" class="result-action">Register</button>
+        </div>`;
+
+      row.querySelector('.result-action').addEventListener('click', () => {
+        openRegister({ domain, isFree: free, payPrice: free ? 0 : HERO.freeRenew, renewPrice: HERO.freeRenew });
       });
       resultsListEl.appendChild(row);
     });
